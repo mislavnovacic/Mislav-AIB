@@ -30,7 +30,7 @@ $imageResourceGroup = 'RG-WVD-OSIMAGEIB-WE'
 # Add the file archive Shared Access Signature
 $archiveSas = "https://aibsoftwarebuild.blob.core.windows.net/softwaresource/Software.zip?sp=r&st=2022-03-30T13:38:23Z&se=2022-04-06T21:38:23Z&spr=https&sv=2020-08-04&sr=b&sig=5PFN7CDMsxIm3FTMAbiI%2BNceDAkXVPlkn%2FEHAzcE8uw%3D"
 # Add the path to the PowerShell Install Script
-$installScript = 'https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Install-Apps/Install-NotepadPlusPlus.ps1'
+$installScript = 'https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Install-Apps/Install-NotepadplusandFoxit.ps1'
 # location (see possible locations in main docs)
 $location = (Get-AzResourceGroup -Name $imageResourceGroup).Location
 # your subscription, this will get your current subscription
