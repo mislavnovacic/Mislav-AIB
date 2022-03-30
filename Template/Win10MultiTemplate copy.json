@@ -31,7 +31,7 @@
           }
         },
         "properties": {
-          "buildTimeoutInMinutes": 30,
+          "buildTimeoutInMinutes": 60,
           "vmProfile": {
             "vmSize": "Standard_B4ms",
             "osDiskSizeGB": 127
@@ -61,6 +61,14 @@
               "runElevated": true,
               "runAsSystem": true,
               "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/1_Optimize_OS_for_WVD.ps1"
+            },
+
+            {
+              "type": "PowerShell",
+              "name": "Get7Zip",
+              "runElevated": true,
+              "runAsSystem": true,
+              "scriptUri": "https://gist.githubusercontent.com/dansmith65/7dd950f183af5f5deaf9650f2ad3226c/raw/8b8f6e96de7469cea73c9fe63a5da4d44a7c1ba7/Install-7zip.ps1"
             }
 
           ],
@@ -81,6 +89,18 @@
     ]
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

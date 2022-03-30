@@ -31,7 +31,7 @@
           }
         },
         "properties": {
-          "buildTimeoutInMinutes": 60,
+          "buildTimeoutInMinutes": 30,
           "vmProfile": {
             "vmSize": "Standard_B4ms",
             "osDiskSizeGB": 127
@@ -60,15 +60,7 @@
               "name": "OptimizeOS",
               "runElevated": true,
               "runAsSystem": true,
-              "scriptUri": "https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Configure-Image/1_Optimize_OS_for_WVD.ps1"
-            },
-
-            {
-              "type": "PowerShell",
-              "name": "Get7Zip",
-              "runElevated": true,
-              "runAsSystem": true,
-              "scriptUri": "https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Install-Apps/Install-7zip.ps1"
+              "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/1_Optimize_OS_for_WVD.ps1"
             }
 
           ],
@@ -89,18 +81,6 @@
     ]
   }
   
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
