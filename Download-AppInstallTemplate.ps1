@@ -7,7 +7,7 @@
 # it creates a Windows image and outputs the finished image to a Managed IMage
 # Set the template file path and the template file name
 $Win10Url = "https://raw.githubusercontent.com/tsrob50/AIB/main/Win10MultiAppsTemplate.json"
-$Win10FileName = "Win10MultiTemplate.json"
+$Win10FileName = "Win10MultiAppsTemplate.json"
 #Test to see if the path exists.  Create it if not
 if ((test-path .\Template) -eq $false) {
     new-item -ItemType Directory -name 'Template'
@@ -26,11 +26,11 @@ else {
 # Set up the variables
 # The first four need to match Enable-identity.ps1 script
 # destination image resource group
-$imageResourceGroup = 'AIBManagedIDRG'
+$imageResourceGroup = 'RG-WVD-OSIMAGEIB-WE'
 # Add the file archive Shared Access Signature
-$archiveSas = "<Shared Access Signature>"
+$archiveSas = "https://aibsoftwarebuild.blob.core.windows.net/softwaresource/Software.zip?sp=r&st=2022-03-30T13:38:23Z&se=2022-04-06T21:38:23Z&spr=https&sv=2020-08-04&sr=b&sig=5PFN7CDMsxIm3FTMAbiI%2BNceDAkXVPlkn%2FEHAzcE8uw%3D"
 # Add the path to the PowerShell Install Script
-$installScript = 'https://raw.githubusercontent.com/tsrob50/AIB/main/Install-Applications.ps1'
+$installScript = 'https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Install-Apps/Install-Notepad%2B%2B%20and%20Foxit.ps1'
 # location (see possible locations in main docs)
 $location = (Get-AzResourceGroup -Name $imageResourceGroup).Location
 # your subscription, this will get your current subscription

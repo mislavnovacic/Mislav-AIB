@@ -68,9 +68,9 @@ Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, Provi
 Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName
 
 # Create a VM to test
-$VMName = 'TestVMWin11MS'
+$VMName = 'TestVMWin10MS'
 $VMResourceGroup = 'RG-WVD-OSIMAGEIBVM-WE'
-$PiP = 'TestVMWin11MS-PIP'
+$PiP = 'TestVMWin110S-PIP'
 $vmAdminUsername = "mislav"
 $vmAdminPassword = ConvertTo-SecureString "First123" -AsPlainText -Force 
 $Cred = New-Object System.Management.Automation.PSCredential ($vmAdminUsername, $vmAdminPassword) 
