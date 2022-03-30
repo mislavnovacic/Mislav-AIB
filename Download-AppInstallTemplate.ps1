@@ -81,7 +81,7 @@ $vmAdminUsername = "mislav"
 $vmAdminPassword = ConvertTo-SecureString "First123" -AsPlainText -Force 
 $Cred = New-Object System.Management.Automation.PSCredential ($vmAdminUsername, $vmAdminPassword) 
 $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
-New-AzVM -ResourceGroupName $VMResourceGroup -Image $ArtifactId -Name $VMName -Credential $Cred -size Standard_D2_v2
+New-AzVM -ResourceGroupName $VMResourceGroup -Image $ArtifactId -Name $VMName -Credential $Cred -size Standard_D2_v2 -PublicIpAddressName $PiP
 
 # Remove the template deployment
 remove-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup
