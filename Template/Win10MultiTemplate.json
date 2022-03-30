@@ -27,7 +27,7 @@
         "identity": {
           "type": "UserAssigned",
           "userAssignedIdentities": {
-            "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourcegroups/RG-WVD-OSIMAGEIB-WE/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzImageBuild1648478342": {}
+            "<imgBuilderId>": {}
           }
         },
         "properties": {
@@ -61,23 +61,15 @@
               "runElevated": true,
               "runAsSystem": true,
               "scriptUri": "https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Configure-Image/1_Optimize_OS_for_WVD.ps1"
-            },
-
-            {
-              "type": "PowerShell",
-              "name": "Get7Zip",
-              "runElevated": true,
-              "runAsSystem": true,
-              "scriptUri": "https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Install-Apps/Install-7zip.ps1"
             }
 
           ],
           "distribute": [
             {
               "type": "ManagedImage",
-              "imageId": "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourceGroups/RG-WVD-OSIMAGEIB-WE/providers/Microsoft.Compute/images/aibCustomImgWin10",
-              "location": "westeurope",
-              "runOutputName": "win10Client",
+              "imageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>",
+              "location": "<region>",
+              "runOutputName": "<runOutputName>",
               "artifactTags": {
                 "source": "azVmImageBuilder",
                 "baseosimg": "windows10Multi"

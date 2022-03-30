@@ -38,7 +38,7 @@ $imageTemplateName = 'imageTemplateWin10O365Multi'
 # distribution properties object name (runOutput), i.e. this gives you the properties of the managed image on completion
 $runOutputName = 'win10Client'
 # Set the Template File Path
-$templateFilePath = ".\NCWVDPRETPLATA\Template\$Win10FileName"
+$templateFilePath = ".\$Win10FileName"
 # user-assigned managed identity
 $identityName = (Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup).Name
 # get the user assigned managed identity id
