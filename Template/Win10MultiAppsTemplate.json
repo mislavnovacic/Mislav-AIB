@@ -27,7 +27,7 @@
       "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-          "<imgBuilderId>": {}
+          "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourcegroups/RG-WVD-OSIMAGEIB-WE/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzImageBuild1648478342": {}
         }
       },
       "properties": {
@@ -58,7 +58,7 @@
             "type": "PowerShell",
             "name": "GetArchive",
             "inline": [
-              "c:\\temp\\azcopy.exe copy '<Shared Access Signature to archive file>' c:\\temp\\software.zip",
+              "c:\\temp\\azcopy.exe copy 'https://aibsoftwarebuild.blob.core.windows.net/softwaresource/Software.zip?sp=r&st=2022-03-30T13:38:23Z&se=2022-04-06T21:38:23Z&spr=https&sv=2020-08-04&sr=b&sig=5PFN7CDMsxIm3FTMAbiI%2BNceDAkXVPlkn%2FEHAzcE8uw%3D' c:\\temp\\software.zip",
               "Expand-Archive 'c:\\temp\\software.zip' c:\\temp"
             ]
           },
@@ -66,7 +66,7 @@
             "type": "PowerShell",
             "runElevated": true,
             "name": "RunPoShInstall",
-            "scriptUri": "<URI to PowerShell Script>"
+            "scriptUri": "https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Install-Apps/Install-NotepadPlusPlus.ps1"
           },
           {
             "type": "PowerShell",
@@ -88,9 +88,9 @@
         "distribute": [
           {
             "type": "ManagedImage",
-            "imageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>",
-            "location": "<region>",
-            "runOutputName": "<runOutputName>",
+            "imageId": "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourceGroups/RG-WVD-OSIMAGEIB-WE/providers/Microsoft.Compute/images/aibCustomImgWin10",
+            "location": "westeurope",
+            "runOutputName": "win10Client",
             "artifactTags": {
               "source": "azVmImageBuilder",
               "baseosimg": "windows10Multi"
@@ -101,3 +101,11 @@
     }
   ]
 }
+
+
+
+
+
+
+
+
