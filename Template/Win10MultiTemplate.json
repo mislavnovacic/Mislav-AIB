@@ -27,7 +27,7 @@
         "identity": {
           "type": "UserAssigned",
           "userAssignedIdentities": {
-            "<imgBuilderId>": {}
+            "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourcegroups/RG-WVD-OSIMAGEIB-WE/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzImageBuild1648478342": {}
           }
         },
         "properties": {
@@ -67,9 +67,9 @@
           "distribute": [
             {
               "type": "ManagedImage",
-              "imageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>",
-              "location": "<region>",
-              "runOutputName": "<runOutputName>",
+              "imageId": "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourceGroups/RG-WVD-OSIMAGEIB-WE/providers/Microsoft.Compute/images/aibCustomImgWin10",
+              "location": "westeurope",
+              "runOutputName": "win10Client",
               "artifactTags": {
                 "source": "azVmImageBuilder",
                 "baseosimg": "windows10Multi"
@@ -81,6 +81,12 @@
     ]
   }
   
+
+
+
+
+
+
 
 
 
