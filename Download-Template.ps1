@@ -26,7 +26,7 @@ else {
 # Setup the variables
 # The first four need to match Enable-identity.ps1 script
 # destination image resource group
-$imageResourceGroup = 'RG-WVD-OSIMAGEIB-WE'
+$imageResourceGroup = 'RG-AVDLAB-AIB-WEU-01'
 # location (see possible locations in main docs)
 $location = (Get-AzResourceGroup -Name $imageResourceGroup).Location
 # your subscription, this will get your current subscription
@@ -69,7 +69,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 # Create a VM to test
 $VMName = 'TestVMWin10MS'
-$VMResourceGroup = 'RG-WVD-OSIMAGEIBVM-WE'
+$VMResourceGroup = 'RG-AVDLAB-AVDSH-WEU-01'
 $PiP = 'TestVMWin110S-PIP'
 $vmAdminUsername = "mislav"
 $vmAdminPassword = ConvertTo-SecureString "First123" -AsPlainText -Force 
