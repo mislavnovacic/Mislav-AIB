@@ -27,13 +27,13 @@
         "identity": {
           "type": "UserAssigned",
           "userAssignedIdentities": {
-            "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourcegroups/RG-WVD-OSIMAGEIB-WE/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzImageBuild1648478342": {}
+            "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourcegroups/RG-AVDLAB-AIB-WEU-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzImageBuild1649582048": {}
           }
         },
         "properties": {
           "buildTimeoutInMinutes": 30,
           "vmProfile": {
-            "vmSize": "Standard_D2_v2",
+            "vmSize": "Standard_DS3_v2",
             "osDiskSizeGB": 127
           },
           "source": {
@@ -67,7 +67,7 @@
           "distribute": [
             {
               "type": "ManagedImage",
-              "imageId": "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourceGroups/RG-WVD-OSIMAGEIB-WE/providers/Microsoft.Compute/images/aibCustomImgWin11",
+              "imageId": "/subscriptions/55d3be31-4d42-42c1-8129-a75a80d3140b/resourceGroups/RG-AVDLAB-AIB-WEU-01/providers/Microsoft.Compute/images/AIBCustomImgWin11",
               "location": "westeurope",
               "runOutputName": "win11Client",
               "artifactTags": {
@@ -81,6 +81,24 @@
     ]
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -26,19 +26,19 @@ else {
 # Setup the variables
 # The first four need to match Enable-identity.ps1 script
 # destination image resource group
-$imageResourceGroup = 'RG-WVD-OSIMAGEIB-WE'
+$imageResourceGroup = 'RG-AVDLAB-AIB-WEU-01'
 # location (see possible locations in main docs)
 $location = (Get-AzResourceGroup -Name $imageResourceGroup).Location
 # your subscription, this will get your current subscription
 $subscriptionID = (Get-AzContext).Subscription.Id
 # name of the image to be created
-$imageName = 'aibCustomImgWin11'
+$imageName = 'AIBCustomImgWin11'
 # image template name
-$imageTemplateName = 'imageTemplateWin11Multi'
+$imageTemplateName = 'ImageTemplateWin11Multi'
 # distribution properties object name (runOutput), i.e. this gives you the properties of the managed image on completion
 $runOutputName = 'win11Client'
 # Set the Template File Path
-$templateFilePath = ".\NCWVDPRETPLATA\Template\$Win11FileName"
+$templateFilePath = ".\Template\$Win11FileName"
 # user-assigned managed identity
 $identityName = (Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup).Name
 # get the user assigned managed identity id
@@ -69,10 +69,13 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 # Create a VM to test
 $VMName = 'TestVMWin11MS'
-$PiP = 'PiP-TestVMWin11MS'
-$Cred = Get-Credential 
+$VMResourceGroup = 'RG-AVDLAB-AVDSH-WEU-01'
+$PiP = 'TestVMWin110S-PIP'
+$vmAdminUsername = "mislav"
+$vmAdminPassword = ConvertTo-SecureString "First123" -AsPlainText -Force 
+$Cred = New-Object System.Management.Automation.PSCredential ($vmAdminUsername, $vmAdminPassword) 
 $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
-New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name $VMName -Credential $Cred -size Standard_D2_v2 -PublicIpAddressName $PiP
+New-AzVM -ResourceGroupName $VMResourceGroup -Image $ArtifactId -Name $VMName -Credential $Cred -size Standard_DS3_v2 -PublicIpAddressName $PiP
 
 # Remove the template deployment
 remove-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup

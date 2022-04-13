@@ -32,9 +32,9 @@ $location = (Get-AzResourceGroup -Name $imageResourceGroup).Location
 # your subscription, this will get your current subscription
 $subscriptionID = (Get-AzContext).Subscription.Id
 # name of the image to be created
-$imageName = 'aibCustomImgWin10'
+$imageName = 'AIBCustomImgWin10'
 # image template name
-$imageTemplateName = 'imageTemplateWin10O365Multi'
+$imageTemplateName = 'ImageTemplateWin10O365Multi'
 # distribution properties object name (runOutput), i.e. this gives you the properties of the managed image on completion
 $runOutputName = 'win10Client'
 # Set the Template File Path
@@ -70,12 +70,12 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 # Create a VM to test
 $VMName = 'TestVMWin10MS'
 $VMResourceGroup = 'RG-AVDLAB-AVDSH-WEU-01'
-$PiP = 'TestVMWin110S-PIP'
+$PiP = 'TestVMWin100S-PIP'
 $vmAdminUsername = "mislav"
 $vmAdminPassword = ConvertTo-SecureString "First123" -AsPlainText -Force 
 $Cred = New-Object System.Management.Automation.PSCredential ($vmAdminUsername, $vmAdminPassword) 
 $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
-New-AzVM -ResourceGroupName $VMResourceGroup -Image $ArtifactId -Name $VMName -Credential $Cred -size Standard_D2_v2 -PublicIpAddressName $PiP
+New-AzVM -ResourceGroupName $VMResourceGroup -Image $ArtifactId -Name $VMName -Credential $Cred -size Standard_DS3_v2 -PublicIpAddressName $PiP
 
 
 # Remove the template deployment
@@ -94,7 +94,7 @@ $pubName = 'MicrosoftWindowsDesktop'
 Get-AzVMImageOffer -Location $location -PublisherName $pubName | ft Offer,PublisherName,Location
 # Set Offer to 'office-365' for images with O365 
 # $offerName = 'office-365'
-$offerName = 'Windows-10'
+$offerName = 'office-365'
 Get-AzVMImageSku -Location $location -PublisherName $pubName -Offer $offerName | ft Skus,Offer,PublisherName,Location
 $skuName = '20h1-evd'
 Get-AzVMImage -Location $location -PublisherName $pubName -Skus $skuName -Offer $offerName
