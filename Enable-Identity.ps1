@@ -1,5 +1,5 @@
 # Connect to Azure subscription
-Connect-AzAccount
+Connect-AzAccount -TenantId a349a914-163f-4221-877b-69ff3cc2a61e
 
 # Set Variables for the commands
 # Destination image resource group name
