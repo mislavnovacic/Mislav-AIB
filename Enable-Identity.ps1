@@ -3,7 +3,7 @@ Connect-AzAccount
 
 # Set Variables for the commands
 # Destination image resource group name
-$imageResourceGroup = 'RG-WVD-OSIMAGEIB-WE'
+$imageResourceGroup = 'RG-AVDLAB-GAL-WEU-01'
 # Azure region
 # Supported Regions East US, East US 2, West Central US, West US, West US 2, North Europe, West Europe
 $location = 'westeurope'
