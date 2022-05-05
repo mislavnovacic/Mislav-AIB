@@ -6,7 +6,7 @@
 # The template used is from the Azure Quick Start templates
 # it creates a Windows image and outputs the finished image to a Managed IMage
 # Set the template file path and the template file name
-$Win10Url = "https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Template/Win10MultiTemplate.json"
+$Win10Url = "https://raw.githubusercontent.com/mislavnovacic/Mislav-AIB/main/Win10MultiTemplate.json"
 $Win10FileName = "Win10MultiTemplate.json"
 #Test to see if the path exists.  Create it if not
 if ((test-path .\Template) -eq $false) {
@@ -26,7 +26,7 @@ else {
 # Setup the variables
 # The first four need to match Enable-identity.ps1 script
 # destination image resource group
-$imageResourceGroup = 'RG-AVDLAB-AIB-WEU-01'
+$imageResourceGroup = 'RG-AVDLAB-GAL-WEU-01'
 # location (see possible locations in main docs)
 $location = (Get-AzResourceGroup -Name $imageResourceGroup).Location
 # your subscription, this will get your current subscription
